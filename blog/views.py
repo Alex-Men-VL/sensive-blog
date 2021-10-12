@@ -25,13 +25,6 @@ def serialize_tag(tag):
     }
 
 
-def serialize_tag_for_posts(tag):
-    return {
-        'title': tag.title,
-        'posts_with_tag': tag.posts.count(),
-    }
-
-
 def index(request):
     prefetch = Prefetch(
         'tags',

@@ -66,7 +66,7 @@ def index(request):
 
 def post_detail(request, slug):
     try:
-        post = Post.objects.get(slug=slug)
+        post = Post.objects.select_related('author').get(slug=slug)
     except Post.DoesNotExist:
         return HttpResponseNotFound('<h1>Пост не найден</h1>')
 
